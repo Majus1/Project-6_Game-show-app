@@ -29,14 +29,15 @@ function getRandomPhraseAsArray(phrase) {
     let lettersSplitFromPgrase = randomPhraseSelected.split("");
     return lettersSplitFromPgrase;
 };
-
+// Spodnja vrstica shrani retur funkcije getRandomPhraseAsArray() v spodnjo variablo.
 const phraseArray = getRandomPhraseAsArray(phrase);
-console.log(phraseArray);
 
-// function addPhraseToDisplay(lettersSplitFromPhrase) {
-//     for (let i = 0; i < lettersSplitFromPhrase.length; i++) {};
-//     console.log("To je ta sexy črka", lettersSplitFromPhrase[i]);
-// };
+function addPhraseToDisplay(phraseArray) {
+    for (let i = 0; i < phraseArray.length; i++) {
+        let rezultat = phraseArray[i];
+        console.log(rezultat);
+    };
+};
 
 
 /*
