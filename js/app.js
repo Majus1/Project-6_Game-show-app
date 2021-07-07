@@ -15,24 +15,27 @@ startButton.addEventListener("click", ()=> {
     overlay.style.display = "none";
 });
 
-/*
-// Funkcije #1 vzme neko random besedo iz arraya slednjo besedo razbije in vrne novi array sestavljen iz črk razbite besede.
-*/
 
-function getRandomPhraseAsArray(phrase) {
+ function getRandomPhraseAsArray(phrase) {
     /*
     • Slednja funkcija najde random število med o in dolžino našega arraya.
     • Poišče element znotraj arraya kateri je bil označen z randomNumber indexom.
     • Slednji element razbije na posamične in jih shrani v novi array.
     • Returna nam naš novi array polen črk izbrane besede.
+    • Kar koli je returnano je shranjeno pod variabl v z naslovom randomPhraseInLetters.
     */
     let randomNumber = Math.floor(Math.random() * phrase.length);
     let randomPhraseSelected = phrase[randomNumber];
     let lettersSplitFromPgrase = randomPhraseSelected.split("");
     return lettersSplitFromPgrase;
-} 
+};
+
+// function addPhraseToDisplay(lettersSplitFromPhrase) {
+//     for (let i = 0; i < lettersSplitFromPhrase.length; i++) {};
+//     console.log("To je ta sexy črka", lettersSplitFromPhrase[i]);
+// };
 
 
 /*
-Man ustvaril si dope funkcijo ki returna random zaporedje nekega elmenta v arraju v celih številih
+    ...
 */
