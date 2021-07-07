@@ -16,6 +16,7 @@ startButton.addEventListener("click", ()=> {
 });
 
 
+<<<<<<< HEAD
  function getRandomPhraseAsArray(phrase) {
     /*
     • Slednja funkcija najde random število med o in dolžino našega arraya.
@@ -34,7 +35,13 @@ startButton.addEventListener("click", ()=> {
 //     for (let i = 0; i < lettersSplitFromPhrase.length; i++) {};
 //     console.log("To je ta sexy črka", lettersSplitFromPhrase[i]);
 // };
+=======
+// function getRandomPhraseAsArray(arr){
+    
+// } 
+>>>>>>> parent of 93c7b20 (Added and tested function getRandomPhraseAsArray)
 
+console.log(Math.floor(Math.random() * phrases.length + 1));¸
 
 /*
     ...
