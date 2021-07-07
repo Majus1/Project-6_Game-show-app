@@ -7,7 +7,7 @@ let missed = 0;
 const startButton = document.getElementsByClassName("btn__reset")[0];
 
 // The event full of 5 phrases I thought of
-phrases = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
+phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
@@ -16,7 +16,6 @@ startButton.addEventListener("click", ()=> {
 });
 
 
-<<<<<<< HEAD
  function getRandomPhraseAsArray(phrase) {
     /*
     • Slednja funkcija najde random število med o in dolžino našega arraya.
@@ -35,13 +34,7 @@ startButton.addEventListener("click", ()=> {
 //     for (let i = 0; i < lettersSplitFromPhrase.length; i++) {};
 //     console.log("To je ta sexy črka", lettersSplitFromPhrase[i]);
 // };
-=======
-// function getRandomPhraseAsArray(arr){
-    
-// } 
->>>>>>> parent of 93c7b20 (Added and tested function getRandomPhraseAsArray)
 
-console.log(Math.floor(Math.random() * phrases.length + 1));¸
 
 /*
     ...
