@@ -32,13 +32,14 @@ function getRandomPhraseAsArray(phrase) {
 // Spodnja vrstica shrani retur funkcije getRandomPhraseAsArray() v spodnjo variablo.
 const phraseArray = getRandomPhraseAsArray(phrase);
 
+
+function addPhraseToDisplay(phraseArray) {
     /*
     • Slednja funkcija najde z pomočjo for loopa prešiba čez vse elemnte znotraj arraya
     • Selecta div, ul in li element v našemu DOM.
     • Našemu selectanemu li spremeni text bolj natančno ga nadomesti z elementom iz našega arrya
     • Vsre li elemente appenda našemu <ul> tagu in BOOM pojavijo se na našim DOM
     */
-function addPhraseToDisplay(phraseArray) {
     for (let i = 0; i < phraseArray.length; i++) {
         const div = document.querySelector("#phrase");
         const ul = div.firstElementChild;
@@ -52,13 +53,23 @@ function addPhraseToDisplay(phraseArray) {
         ul.appendChild(li);
     };
 };
-
+// Spodnja vrstica sproži funkcijo.
 addPhraseToDisplay(phraseArray)
 
 
-
-
-
+function checkLetter() {
+    /*
+    • Slednja funkcija najde z pomočjo for loopa prešiba čez vse elemnte znotraj arraya
+    • Selecta div, ul in li element v našemu DOM.
+    • Našemu selectanemu li spremeni text bolj natančno ga nadomesti z elementom iz našega arrya
+    • Vsre li elemente appenda našemu <ul> tagu in BOOM pojavijo se na našim DOM
+    */
+   let lettersWithClass = document.querySelectorAll(".letter");
+   for (let i = 0; i < lettersWithClass.length; i++) {
+       console.log(lettersWithClass[i]);
+   };
+};
+checkLetter()
 
 
 
@@ -66,5 +77,6 @@ addPhraseToDisplay(phraseArray)
 // THE TO DO ZONE
 
 /*
-    • Našemu selectanemu li spremeni text bolj natančno ga nadomesti z elementom iz našega arrya
+    elements with a class of “letter” (remember that we added the letter class to all of the letters and none of the spaces when we made the game display).
+    The function should loop over the letters and check if they match the letter in the button the player has chosen.
 */
