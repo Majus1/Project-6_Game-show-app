@@ -12,7 +12,7 @@ phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
-    let overlay =document.querySelector("div");
+    let overlay =document.getElementById("overlay");
     overlay.style.display = "none";
 });
 
@@ -44,11 +44,27 @@ function addPhraseToDisplay(phraseArray) {
         const ul = div.firstElementChild;
         const li = document.createElement("li");
         li.textContent = phraseArray[i];
+// Spodnji if statement pogleda textovno vsebino li variable in če ta ni presledek ji dodeli class letter.
+        if (li.textContent != " ") {
+            li.className = "letter";
+        };
+        
         ul.appendChild(li);
     };
 };
 
+addPhraseToDisplay(phraseArray)
+
+
+
+
+
+
+
+
+
+// THE TO DO ZONE
 
 /*
-    If the character in the array is a letter and not a space, the function should add the class “letter” to the list item.
+    • Našemu selectanemu li spremeni text bolj natančno ga nadomesti z elementom iz našega arrya
 */
