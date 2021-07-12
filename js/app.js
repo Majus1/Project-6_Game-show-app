@@ -66,12 +66,18 @@ function checkLetter() {
 // Slednji for loop selecta vse elemente v DOM z classom letter in jim jih shrani v array
    for (let i = 0; i < lettersWithClass.length; i++) {
 // Dejanski element znotraj arraya
-       let letterInQuestion = lettersWithClass;
-// Vsebina zgornjega elementa.
-       let currentEvaluatedLetterContent = lettersWithClass[i].textContent;
+       let letterInQuestion = lettersWithClass[i];
+
+       // SMIR test ali primerja pravo vsebino-
+       console.log("s" === letterInQuestion.textContent);
        console.log(letterInQuestion);
-       if (currentEvaluatedLetterContent === "s") {
-        console.log("govorimo v supu");
+
+       if ("s" === letterInQuestion.textContent) {
+           // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
+            console.log("Fuk yeah");
+            letterInQuestion.className = "show";
+            let correctlyGuessedLetter = letterInQuestion;
+            return correctlyGuessedLetter;
        };
    };
 };
@@ -79,10 +85,11 @@ checkLetter()
 
 
 
-
 // THE TO DO ZONE
 
 /*
-The function should loop over the letters and check if they match the letter in the button the player has chosen.
-If there’s a match, the function should add the “show” class to the list item containing that letter, store the matching letter inside of a variable, and return that letter.
+• Preveri ali je kakšen način da ima HTML element več kot e class atribut?
+
+• If a match wasn’t found, the function should return null.
+• ...
 */
