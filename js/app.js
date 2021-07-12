@@ -107,3 +107,5 @@ function checkLetter(buttonCliked) {
         };
     };
 };
+
+// Zanima nas kako lahko lahko naenkrat prečekamo vse črke. Če ima ena beseda 2x enako črko kako odznačimo oba.
