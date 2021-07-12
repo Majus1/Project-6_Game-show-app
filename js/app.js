@@ -69,6 +69,7 @@ onScreenKeyboar.addEventListener("click", (event) => {
     • Event listiner vsebuje tudi funkcijo katera sprejme gumb na katerega smo kliknili in se izvrši
     */
     let buttonCliked = event.target;
+    console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
         checkLetter(buttonCliked)
@@ -79,31 +80,30 @@ onScreenKeyboar.addEventListener("click", (event) => {
     }
 });
 
-
 function checkLetter(buttonCliked) {
-    /*
+     /*
     • Slednja for loop selecta vse li elmente znotraj <div> phrase in jim jih shrani v array
     • Z pomočjo for lopa prešiba čez vse.
     • Z pomočjo if statementa previri ali kateri izmed elementov se ujema uporabnkiovim inputom
     • ČE se ujema zgoraj omenjeni elment ujema se mu dodeli class "show" if not sereturna null 
     */
-   let lettersWithClass = document.querySelectorAll(".letter");
-// Slednji for loop selecta vse elemente v DOM z classom letter in jim jih shrani v array
-   for (let i = 0; i < lettersWithClass.length; i++) {
-// Dejanski element znotraj arraya
-       let letterInQuestion = lettersWithClass[i];
+    let lettersWithClass = document.querySelectorAll(".letter");
 
-       console.log(buttonCliked);
-       console.log(letterInQuestion);
-       console.log([i]);
+    for (let i = 0; i < lettersWithClass.length; i++) {
+        // Dejanski element znotraj arraya
+        let letterInQuestion = lettersWithClass[i];
 
+        console.log(buttonCliked);
+        console.log(letterInQuestion);
+        console.log([i]);
 
-       if (buttonCliked.textContent === letterInQuestion.textContent) {
-                   // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-         console.log("Fuk yeah");
-         // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
-          letterInQuestion.classList.add("show");
-          let correctlyGuessedLetter = letterInQuestion;
-          return correctlyGuessedLetter;
-       };
+        if (buttonCliked.textContent === letterInQuestion.textContent) {
+            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
+            console.log("Fuk yeah");
+            // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
+            letterInQuestion.classList.add("show");
+            let correctlyGuessedLetter = letterInQuestion;
+            return correctlyGuessedLetter;
+        };
+    };
 };
