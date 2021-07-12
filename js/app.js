@@ -95,14 +95,14 @@ onScreenKeyboar.addEventListener("click", (event) => {
     • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen
     • Če je bil kliknjen gumb z neko specifično šrko lahko njega naprej manipuliramo.
     */
-   if (event.target.className === "keyword") {
-    // SMIR TEST
-    console.log(event.target.textContent);
-
-    event.target.className = "chosen";
-   } else (
-       console.log("Tale nima Željenega classa.")
-   );
+    let buttonCliked = event.target;
+    console.log(buttonCliked);
+    if (buttonCliked.tagName === "BUTTON") {
+        buttonCliked.className = "chosen";
+        buttonCliked.setAttribute("disabled", "buttonCliked");
+    } else {
+        return null;
+    }
 });
 
 
