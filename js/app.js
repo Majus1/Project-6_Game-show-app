@@ -1,6 +1,7 @@
 // The variables used.
 const qwertySection = document.getElementById("qwerty");
 const ourPhrase = document.getElementById("phrase");
+const onScreenKeyboar = document.getElementById("qwerty");
 
 
 let missed = 0;
@@ -88,7 +89,21 @@ function checkLetter() {
 };
 checkLetter()
 
+onScreenKeyboar.addEventListener("click", (event) => {
+    /*
+    • Z pomočjo event listerja identificeramo klike na elemente znoraj <div id="#qwerty">
+    • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen
+    • Če je bil kliknjen gumb z neko specifično šrko lahko njega naprej manipuliramo.
+    */
+   if (event.target.className === "keyword") {
+    // SMIR TEST
+    console.log(event.target.textContent);
 
+    event.target.className = "chosen";
+   } else (
+       console.log("Tale nima Željenega classa.")
+   );
+});
 
 
 
