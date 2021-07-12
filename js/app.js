@@ -75,9 +75,12 @@ function checkLetter() {
        if ("s" === letterInQuestion.textContent) {
            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
             console.log("Fuk yeah");
-            letterInQuestion.className = "show";
+        // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
+            letterInQuestion.classList.add("show");
             let correctlyGuessedLetter = letterInQuestion;
             return correctlyGuessedLetter;
+       } else {
+           return null;
        };
    };
 };
@@ -88,8 +91,8 @@ checkLetter()
 // THE TO DO ZONE
 
 /*
-• Preveri ali je kakšen način da ima HTML element več kot e class atribut?
 
-• If a match wasn’t found, the function should return null.
+• Use event delegation to listen only to button events from the keyboard.
+When a player chooses a letter, add the “chosen” class to that button so the same letter can’t be chosen twice.
 • ...
 */

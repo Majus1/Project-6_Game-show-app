@@ -96,12 +96,12 @@ button {
   color: #000;
   background-color: #76CE82;
   /* whis was added by me */
-    font-size: var(--font-size-medium);
+    /* font-size: var(--font-size-medium);
     height: 65px;
     width: 65px;
     padding: 20px 1px 0 1px;
     margin-right: 2px;
-    border-radius: 5px;
+    border-radius: 5px; */
 }
 
 /* Keyboard */
