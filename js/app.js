@@ -58,7 +58,29 @@ function addPhraseToDisplay(phraseArray) {
 addPhraseToDisplay(phraseArray)
 
 
-function checkLetter() {
+
+
+onScreenKeyboar.addEventListener("click", (event) => {
+    /*
+    • Z pomočjo event listerja identificeramo klike na elemente znoraj <div id="#qwerty">
+    • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen
+    • Če je bil kliknjen gumb z neko specifično šrko lahko njega naprej manipuliramo.
+    • Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+    • Event listiner vsebuje tudi funkcijo katera sprejme gumb na katerega smo kliknili in se izvrši
+    */
+    let buttonCliked = event.target;
+    if (buttonCliked.tagName === "BUTTON") {
+        buttonCliked.className = "chosen";
+        checkLetter(buttonCliked)
+        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+        buttonCliked.setAttribute("disabled", "buttonCliked");
+    } else {
+        return null;
+    }
+});
+
+
+function checkLetter(buttonCliked) {
     /*
     • Slednja for loop selecta vse li elmente znotraj <div> phrase in jim jih shrani v array
     • Z pomočjo for lopa prešiba čez vse.
@@ -71,53 +93,18 @@ function checkLetter() {
 // Dejanski element znotraj arraya
        let letterInQuestion = lettersWithClass[i];
 
-       // SMIR test ali primerja pravo vsebino-
-       console.log("s" === letterInQuestion.textContent);
+       console.log(buttonCliked);
        console.log(letterInQuestion);
+       console.log([i]);
 
-       if ("s" === letterInQuestion.textContent) {
-           // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            console.log("Fuk yeah");
-           // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
-            letterInQuestion.classList.add("show");
-            let correctlyGuessedLetter = letterInQuestion;
-            return correctlyGuessedLetter;
-       } else {
-           return null;
+
+       if (buttonCliked.textContent === letterInQuestion.textContent) {
+                   // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
+         console.log("Fuk yeah");
+         // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
+          letterInQuestion.classList.add("show");
+          let correctlyGuessedLetter = letterInQuestion;
+          return correctlyGuessedLetter;
        };
-   };
 };
-checkLetter()
 
-onScreenKeyboar.addEventListener("click", (event) => {
-    /*
-    • Z pomočjo event listerja identificeramo klike na elemente znoraj <div id="#qwerty">
-    • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen
-    • Če je bil kliknjen gumb z neko specifično šrko lahko njega naprej manipuliramo.
-    • Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
-    */
-    let buttonCliked = event.target;
-    if (buttonCliked.tagName === "BUTTON") {
-        buttonCliked.className = "chosen";
-        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
-        buttonCliked.setAttribute("disabled", "buttonCliked");
-    } else {
-        return null;
-    }
-});
-
-
-
-
-
-
-
-
-// THE TO DO ZONE
-
-/*
-
-• Use event delegation to listen only to button events from the keyboard.
-When a player chooses a letter, add the “chosen” class to that button so the same letter can’t be chosen twice.
-• ...
-*/
