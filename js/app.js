@@ -94,11 +94,12 @@ onScreenKeyboar.addEventListener("click", (event) => {
     • Z pomočjo event listerja identificeramo klike na elemente znoraj <div id="#qwerty">
     • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen
     • Če je bil kliknjen gumb z neko specifično šrko lahko njega naprej manipuliramo.
+    • Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
     */
     let buttonCliked = event.target;
-    console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
+        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
         buttonCliked.setAttribute("disabled", "buttonCliked");
     } else {
         return null;
