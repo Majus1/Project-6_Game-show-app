@@ -59,8 +59,10 @@ addPhraseToDisplay(phraseArray)
 
 function checkLetter() {
     /*
-    • Slednja for loop selecta vse elemente v DOM in jim jih shrani v array
-    • Iz arraya potem ... 
+    • Slednja for loop selecta vse li elmente znotraj <div> phrase in jim jih shrani v array
+    • Z pomočjo for lopa prešiba čez vse.
+    • Z pomočjo if statementa previri ali kateri izmed elementov se ujema uporabnkiovim inputom
+    • ČE se ujema zgoraj omenjeni elment ujema se mu dodeli class "show" if not sereturna null 
     */
    let lettersWithClass = document.querySelectorAll(".letter");
 // Slednji for loop selecta vse elemente v DOM z classom letter in jim jih shrani v array
@@ -75,7 +77,7 @@ function checkLetter() {
        if ("s" === letterInQuestion.textContent) {
            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
             console.log("Fuk yeah");
-        // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
+           // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
             letterInQuestion.classList.add("show");
             let correctlyGuessedLetter = letterInQuestion;
             return correctlyGuessedLetter;
@@ -85,6 +87,13 @@ function checkLetter() {
    };
 };
 checkLetter()
+
+
+
+
+
+
+
 
 
 
