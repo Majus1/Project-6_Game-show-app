@@ -107,4 +107,3 @@ function checkLetter(buttonCliked) {
           return correctlyGuessedLetter;
        };
 };
-
