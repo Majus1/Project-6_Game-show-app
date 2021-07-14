@@ -97,13 +97,6 @@ function checkLetter(buttonCliked) {
         console.log(letterInQuestion);
         console.log([i]);
 
-        if (buttonCliked.textContent === letterInQuestion.textContent) {
-            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
-            letterInQuestion.classList.add("show");
-            let correctlyGuessedLetter = letterInQuestion;
-            return correctlyGuessedLetter;
-        };
     };
 };
 // Zanima nas kako lahko lahko naenkrat prečekamo vse črke. Če ima ena beseda 2x enako črko kako odznačimo oba.
