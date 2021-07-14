@@ -99,7 +99,6 @@ function checkLetter(buttonCliked) {
 
         if (buttonCliked.textContent === letterInQuestion.textContent) {
             // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            console.log("Fuk yeah");
             // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
             letterInQuestion.classList.add("show");
             let correctlyGuessedLetter = letterInQuestion;
