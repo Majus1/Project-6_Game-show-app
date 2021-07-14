@@ -71,39 +71,36 @@ onScreenKeyboar.addEventListener("click", (event) => {
     let buttonCliked = event.target;
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
+        let lettersWithClass = document.querySelectorAll(".letter");
         buttonCliked.className = "chosen";
-        checkLetter(buttonCliked)
-        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
-        buttonCliked.setAttribute("disabled", "buttonCliked");
+        for (let i = 0; i<lettersWithClass.length; i++) {
+            let letterInQuerstion = lettersWithClass[i];
+            checkLetter(buttonCliked)
+            // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+            buttonCliked.setAttribute("disabled", "buttonCliked");
+        };
+
+
     } else {
         return null;
     }
 });
 
-function checkLetter(buttonCliked) {
+function checkLetter(buttonCliked, letterInQuerstion) {
      /*
     • Slednja for loop selecta vse li elmente znotraj <div> phrase in jim jih shrani v array
     • Z pomočjo for lopa prešiba čez vse.
     • Z pomočjo if statementa previri ali kateri izmed elementov se ujema uporabnkiovim inputom
     • ČE se ujema zgoraj omenjeni elment ujema se mu dodeli class "show" if not sereturna null 
     */
-    let lettersWithClass = document.querySelectorAll(".letter");
-
-    for (let i = 0; i < lettersWithClass.length; i++) {
-        // Dejanski element znotraj arraya
-        let letterInQuestion = lettersWithClass[i];
-
-        console.log(buttonCliked);
-        console.log(letterInQuestion);
-        console.log([i]);
-
-        if (buttonCliked.textContent === letterInQuestion.textContent) {
-            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
-            letterInQuestion.classList.add("show");
-            let correctlyGuessedLetter = letterInQuestion;
-            return correctlyGuessedLetter;
-        };
+   console.log(letterInQuerstion);
+    if (buttonCliked.textContent === letterInQuerstion) {
+        // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
+        // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
+        letterInQuerstion.classList.add("show");
+        let correctlyGuessedLetter = letterInQuerstion;
+        console.log(`Funkcija nam returna slednjo vrednost _${correctlyGuessedLetter.textContent}_`);
+        return correctlyGuessedLetter.textContent;
     };
 };
 // Zanima nas kako lahko lahko naenkrat prečekamo vse črke. Če ima ena beseda 2x enako črko kako odznačimo oba.
