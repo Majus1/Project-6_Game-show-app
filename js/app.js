@@ -93,6 +93,7 @@ function checkLetter(buttonCliked, letterInQuerstion) {
     • Z pomočjo if statementa previri ali kateri izmed elementov se ujema uporabnkiovim inputom
     • ČE se ujema zgoraj omenjeni elment ujema se mu dodeli class "show" if not sereturna null 
     */
+<<<<<<< HEAD
    console.log(letterInQuerstion);
     if (buttonCliked.textContent === letterInQuerstion) {
         // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
@@ -101,6 +102,18 @@ function checkLetter(buttonCliked, letterInQuerstion) {
         let correctlyGuessedLetter = letterInQuerstion;
         console.log(`Funkcija nam returna slednjo vrednost _${correctlyGuessedLetter.textContent}_`);
         return correctlyGuessedLetter.textContent;
+=======
+    let lettersWithClass = document.querySelectorAll(".letter");
+
+    for (let i = 0; i < lettersWithClass.length; i++) {
+        // Dejanski element znotraj arraya
+        let letterInQuestion = lettersWithClass[i];
+
+        console.log(buttonCliked);
+        console.log(letterInQuestion);
+        console.log([i]);
+
+>>>>>>> parent of 9dd717c (Revert "test2")
     };
 };
 // Zanima nas kako lahko lahko naenkrat prečekamo vse črke. Če ima ena beseda 2x enako črko kako odznačimo oba.
