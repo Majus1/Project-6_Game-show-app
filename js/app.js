@@ -72,6 +72,12 @@ onScreenKeyboar.addEventListener("click", (event) => {
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
+
+        let lettersWithClass = document.querySelectorAll(".letter");
+        for (let z = 0; z < lettersWithClass.length; z++) {
+            console.log(lettersWithClass[z]);
+        };
+        // Spodnja vrstica kode sproži funkcijo checLetter
         checkLetter(buttonCliked)
         // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
         buttonCliked.setAttribute("disabled", "buttonCliked");
@@ -92,14 +98,9 @@ function checkLetter(buttonCliked) {
     for (let i = 0; i < lettersWithClass.length; i++) {
         // Dejanski element znotraj arraya
         let letterInQuestion = lettersWithClass[i];
-
-        console.log(buttonCliked);
-        console.log(letterInQuestion);
-        console.log([i]);
-
+        
         if (buttonCliked.textContent === letterInQuestion.textContent) {
-            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            console.log("Fuk yeah");
+            // if statement preveri ali je vsebina letterInQuerstion enaka črki ki smo jo kliknili.
             // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
             letterInQuestion.classList.add("show");
             let correctlyGuessedLetter = letterInQuestion;
