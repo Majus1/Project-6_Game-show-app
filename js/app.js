@@ -71,16 +71,17 @@ onScreenKeyboar.addEventListener("click", (event) => {
     let buttonCliked = event.target;
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
-        buttonCliked.className = "chosen";
+        
 
         let lettersWithClass = document.querySelectorAll(".letter");
         for (let z = 0; z < lettersWithClass.length; z++) {
+            buttonCliked.className = "chosen";
             console.log(lettersWithClass[z]);
+            // Spodnja vrstica kode sproži funkcijo checLetter
+            checkLetter(buttonCliked)
+            // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+            buttonCliked.setAttribute("disabled", "buttonCliked");
         };
-        // Spodnja vrstica kode sproži funkcijo checLetter
-        checkLetter(buttonCliked)
-        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
-        buttonCliked.setAttribute("disabled", "buttonCliked");
     } else {
         return null;
     }
