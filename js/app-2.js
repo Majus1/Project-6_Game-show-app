@@ -111,3 +111,5 @@ function checkLetter(buttonCliked) {
 };
 
 // Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
+
+// Add a counter function that checks if letter chosen is the right one if so do nothing if not remove oe hart
