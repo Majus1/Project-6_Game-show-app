@@ -95,6 +95,7 @@ function checkLetter(buttonCliked) {
         let letterInQuestion = lettersWithClass[i];
         console.log(`comparing the button clicked _${buttonCliked.textContent}_ in gumb v naši frazi _${letterInQuestion.textContent}_`);
 
+        // Switch statement nam omogoča testiran ujemanja varabel.
         switch (buttonCliked.textContent === letterInQuestion.textContent) {
             case true:
               console.log("These are the droids");
