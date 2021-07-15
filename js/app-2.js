@@ -101,9 +101,9 @@ function checkLetter(buttonCliked) {
             case true:
               console.log("These are the droids");
               letterInQuestion.classList.add("show");
+              let correctlyGuessedLetter = letterInQuestion
               break;
             case false:
-                console.log("Nope");
               break;
           }
     };
