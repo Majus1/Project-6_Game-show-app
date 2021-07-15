@@ -96,6 +96,7 @@ function checkLetter(buttonCliked) {
         console.log(`comparing the button clicked _${buttonCliked.textContent}_ in gumb v naši frazi _${letterInQuestion.textContent}_`);
 
         // Switch statement nam omogoča testiran ujemanja varabel.
+        // THIS HELPED: https://www.w3schools.com/js/js_switch.asp
         switch (buttonCliked.textContent === letterInQuestion.textContent) {
             case true:
               console.log("These are the droids");
