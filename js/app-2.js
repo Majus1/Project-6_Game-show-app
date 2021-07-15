@@ -84,10 +84,8 @@ onScreenKeyboar.addEventListener("click", (event) => {
 
 function checkLetter(buttonCliked) {
      /*
-    • Slednji for loop selecta vse li elmente znotraj <div> phrase in jim jih shrani v array
-    • Z pomočjo for lopa prešiba čez vse.
-    • Z pomočjo if statementa previri ali kateri izmed elementov se ujema uporabnkiovim inputom
-    • ČE se ujema zgoraj omenjeni elment ujema se mu dodeli class "show" if not sereturna null 
+    • Funkcija ustvari array vseh črk znotraj naše phrase.
+    • Z pomčjo for loopa in Switch Statementa evalueramo ali se kateri izmed indexov znotraj ustvarjenega arraya ujema kliknjeno črko na tipkovnici 
     */
     let lettersWithClass = document.querySelectorAll(".letter");
 
@@ -97,14 +95,15 @@ function checkLetter(buttonCliked) {
         let letterInQuestion = lettersWithClass[i];
         console.log(`comparing the button clicked _${buttonCliked.textContent}_ in gumb v naši frazi _${letterInQuestion.textContent}_`);
 
-        if (buttonCliked.textContent === letterInQuestion.textContent) {
-            // if statement preveri ali je vsebina letterInQuerstion enaka črki s ... slednjo bomo zamenjali z button inputom.
-            console.log("Fuk yeah");
-            // Spodnja vrstice kode omogoča da dodamo sekundarni class našeu selectanemu elementu.
-            letterInQuestion.classList.add("show");
-            let correctlyGuessedLetter = letterInQuestion;
-            return correctlyGuessedLetter;
-        };
+        switch (buttonCliked.textContent === letterInQuestion.textContent) {
+            case true:
+              console.log("These are the droids");
+              letterInQuestion.classList.add("show");
+              break;
+            case false:
+                console.log("Nope");
+              break;
+          }
     };
 };
 
