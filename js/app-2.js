@@ -73,8 +73,9 @@ onScreenKeyboar.addEventListener("click", (event) => {
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
-        checkLetter(buttonCliked)
+        let letterFound = checkLetter(buttonCliked);
         // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+        // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
     } else {
         return null;
@@ -109,6 +110,4 @@ function checkLetter(buttonCliked) {
     };
 };
 
-// Zanima nas kako lahko lahko naenkrat prečekamo vse črke. Če ima ena beseda 2x enako črko kako odznačimo oba.
-
-// Morda se doda še en for lop znotraj 
+// Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
