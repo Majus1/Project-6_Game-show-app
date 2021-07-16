@@ -93,7 +93,6 @@ function checkLetter(buttonCliked) {
     • Z pomčjo for loopa in Switch Statementa evalueramo ali se kateri izmed indexov znotraj ustvarjenega arraya ujema kliknjeno črko na tipkovnici 
     */
     let lettersWithClass = document.querySelectorAll(".letter");
-
     
     for (let i = 0; i < lettersWithClass.length; i++) {
         // Dejanski element znotraj arraya
@@ -112,6 +111,8 @@ function checkLetter(buttonCliked) {
               break;
         };
     };
+    console.log(wrongMatch);
+    console.log(lettersWithClass.length);
     if (wrongMatch === lettersWithClass.length) {
     /*
     • if the valuse of wrongMatch was the same as lettersWithClass.length it means that there was no corectly chosen letter in the switch statement
@@ -119,6 +120,8 @@ function checkLetter(buttonCliked) {
     */
         missed += 1;
         wrongMatch = 0;
+    } else {
+        wrongMatch = 0;  
     };
 };
 
@@ -157,17 +160,15 @@ function scoreboard (missed) {
     };
 };
 
+/*
+CHECKWIN
 
-
-
-
-
-
-
-
-
-
-
-// Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
-
-// Add a counter function that checks if letter chosen is the right one if so do nothing if not remove oe hart
+• ...
+*/
+// function checkWin () {
+//     let correctlyGuessedLetter = document.querySelectorAll(".show").length;
+//     let lettersWithClass = document.querySelectorAll(".letter").length;
+//     console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetter} in število vseh črk v besedi je ${lettersWithClass}.`)
+//     // if () {};
+//     // if () {};
+// };
