@@ -2,6 +2,7 @@
 const qwertySection = document.getElementById("qwerty");
 const ourPhrase = document.getElementById("phrase");
 const onScreenKeyboar = document.getElementById("qwerty");
+let overlay =document.getElementById("overlay");
 // Keeps track of not matching variables in the switch statement
 let wrongMatch = 0;
 // Keeps track how many times a wrong letter was picked
@@ -14,7 +15,6 @@ phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
-    let overlay =document.getElementById("overlay");
     overlay.style.display = "none";
 });
 
@@ -81,6 +81,7 @@ onScreenKeyboar.addEventListener("click", (event) => {
         buttonCliked.setAttribute("disabled", "buttonCliked");
         // Displays the correct number of harts
         scoreboard(missed)
+        checkWin()
     } else {
         return null;
     }
@@ -163,12 +164,14 @@ function scoreboard (missed) {
 /*
 CHECKWIN
 
-• ...
+• The function comares the number of letters with the class ".show" and the lenght of the phrase
+• If the lenghts are the same then ...
 */
-// function checkWin () {
-//     let correctlyGuessedLetter = document.querySelectorAll(".show").length;
-//     let lettersWithClass = document.querySelectorAll(".letter").length;
-//     console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetter} in število vseh črk v besedi je ${lettersWithClass}.`)
-//     // if () {};
-//     // if () {};
-// };
+function checkWin () {
+    let correctlyGuessedLetterLenght = document.querySelectorAll(".show").length;
+    let lettersWithClassLenght = document.querySelectorAll(".letter").length;
+    console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetterLenght} in število vseh črk v besedi je ${lettersWithClassLenght}.`)
+    if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
+        overlay.style.display = "flex";
+    };
+};
