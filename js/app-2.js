@@ -2,8 +2,9 @@
 const qwertySection = document.getElementById("qwerty");
 const ourPhrase = document.getElementById("phrase");
 const onScreenKeyboar = document.getElementById("qwerty");
+// Keeps track of not matching variables in the switch statement
 let wrongMatch = 0;
-
+// Keeps track how many times a wrong letter was picked
 let missed = 0;
 
 const startButton = document.getElementsByClassName("btn__reset")[0];
@@ -104,11 +105,16 @@ function checkLetter(buttonCliked) {
               letterInQuestion.classList.add("show");
               break;
             case false:
+            //  Counts the number of times the switch statement was false
               wrongMatch += 1
               break;
         };
     };
     if (wrongMatch === lettersWithClass.length) {
+    /*
+    • if the valuse of wrongMatch was the same as lettersWithClass.length it means that there was no corectly chosen letter in the switch statement
+    • This means there was no rightcoice and we can add 1 to the missed varriavle 
+    */
         missed += 1;
         wrongMatch = 0;
     };
