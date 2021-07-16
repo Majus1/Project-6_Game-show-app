@@ -73,7 +73,8 @@ onScreenKeyboar.addEventListener("click", (event) => {
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
-        let letterFound = checkLetter(buttonCliked);
+        checkLetter(buttonCliked);
+        numberFailedTries(buttonCliked);
         // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
         // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
@@ -100,9 +101,7 @@ function checkLetter(buttonCliked) {
         // THIS HELPED: https://www.w3schools.com/js/js_switch.asp
         switch (buttonCliked.textContent === letterInQuestion.textContent) {
             case true:
-              console.log("These are the droids");
               letterInQuestion.classList.add("show");
-              let correctlyGuessedLetter = letterInQuestion
               break;
             case false:
               break;
@@ -111,7 +110,16 @@ function checkLetter(buttonCliked) {
 };
 
 function numberFailedTries (buttonCliked) {
+     /*
+    • ...
+    */
+    let lettersWithClass = document.querySelectorAll(".letter");
 
+    for (let z = 0; z < lettersWithClass.length; z++) {
+        console.log(lettersWithClass[z]);
+        missed += 1
+        console.log(missed);
+    };
 };
 
 // Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
