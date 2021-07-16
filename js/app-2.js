@@ -2,7 +2,7 @@
 const qwertySection = document.getElementById("qwerty");
 const ourPhrase = document.getElementById("phrase");
 const onScreenKeyboar = document.getElementById("qwerty");
-
+let wrongMatch = 0;
 
 let missed = 0;
 
@@ -74,7 +74,7 @@ onScreenKeyboar.addEventListener("click", (event) => {
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
         checkLetter(buttonCliked);
-        numberFailedTries(buttonCliked);
+        // numberFailedTries(buttonCliked);
         // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
         // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
@@ -104,23 +104,31 @@ function checkLetter(buttonCliked) {
               letterInQuestion.classList.add("show");
               break;
             case false:
+              wrongMatch += 1
               break;
-          }
+        };
+    };
+    if (wrongMatch === lettersWithClass.length) {
+        missed += 1;
+        wrongMatch = 0;
     };
 };
 
-function numberFailedTries (buttonCliked) {
-     /*
-    • ...
-    */
-    let lettersWithClass = document.querySelectorAll(".letter");
+// function numberFailedTries (buttonCliked) {
+//      /*
+//     • ...
+//     */
+//     let lettersWithClass = document.querySelectorAll(".letter");
 
-    for (let z = 0; z < lettersWithClass.length; z++) {
-        console.log(lettersWithClass[z]);
-        missed += 1
-        console.log(missed);
-    };
-};
+//     for (let z = 0; z < lettersWithClass.length; z++) {
+
+
+//         if (buttonCliked.textContent !== lettersWithClass[z].textContent) {
+//             missed += 1
+//             console.log(`THe number of wrong choices is _${missed}_`);
+//         };
+//     };
+// };
 
 // Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
 
