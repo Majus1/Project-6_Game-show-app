@@ -79,6 +79,8 @@ onScreenKeyboar.addEventListener("click", (event) => {
         // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
         // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
+        // Displays the correct number of harts
+        scoreboard(missed)
     } else {
         return null;
     }
@@ -120,21 +122,51 @@ function checkLetter(buttonCliked) {
     };
 };
 
-// function numberFailedTries (buttonCliked) {
-//      /*
-//     • ...
-//     */
-//     let lettersWithClass = document.querySelectorAll(".letter");
-
-//     for (let z = 0; z < lettersWithClass.length; z++) {
 
 
-//         if (buttonCliked.textContent !== lettersWithClass[z].textContent) {
-//             missed += 1
-//             console.log(`THe number of wrong choices is _${missed}_`);
-//         };
-//     };
-// };
+/*
+SCORE BOARD
+
+• Lower switch statement monitors the number how many harts are displayed.
+• Every time the missed variable rises ne hart disaperas
+*/
+
+function scoreboard (missed) {
+    let lifeHart = document.querySelectorAll(".tries");
+
+    switch (missed) {
+        case 0:
+        // Code
+        break;
+        case 1:
+            // We take one hart away
+            lifeHart[0].style.display = "none";
+        break;
+        case 2:
+            lifeHart[1].style.display = "none";
+        break;
+        case 3:
+            lifeHart[2].style.display = "none";
+        break;
+        case 4:
+            lifeHart[3].style.display = "none";
+        break;
+        case 5:
+            lifeHart[4].style.display = "none";
+        break;
+    };
+};
+
+
+
+
+
+
+
+
+
+
+
 
 // Ustvarimo life bar in najdimo način ki bo odštel life če smo narobe uganili. 
 
