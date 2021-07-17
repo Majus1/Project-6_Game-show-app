@@ -187,17 +187,28 @@ function checkWin () {
 function resetAndTryAgain () {
     overlay.style.display = "none";
     console.log("This will also reset");
+
     // initialized variable back to 0
     missed = 0;
+
     // Displays all the lost harts
     lifeHart[0].style.display = "inline-block";
     lifeHart[1].style.display = "inline-block";
     lifeHart[2].style.display = "inline-block";
     lifeHart[3].style.display = "inline-block";
     lifeHart[4].style.display = "inline-block";
-    // Sets all of the clickable alredy chose letters back to their original state
+
     let alredyChosenLetters = document.querySelectorAll(".chosen");
     for (let n = 0; n < alredyChosenLetters.length; n++) {
+        // Sets all of the clickable alredy chose letters back to their original state
         alredyChosenLetters[n].className = "";
+        alredyChosenLetters[n].removeAttribute("disabled");
+
+    };
+
+    let greenLetters = document.querySelectorAll(".show");
+    for (let x = 0; x < greenLetters.length; x++) {
+        // Select every correctly guessed letter and resets it class
+        greenLetters[x].classList.remove("show");
     };
 };
