@@ -1,6 +1,4 @@
 // The variables used.
-const qwertySection = document.getElementById("qwerty");
-const ourPhrase = document.getElementById("phrase");
 const onScreenKeyboar = document.getElementById("qwerty");
 let overlay =document.getElementById("overlay");
 const startButton = document.getElementsByClassName("btn__reset")[0];
@@ -13,7 +11,7 @@ let missed = 0;
 
 
 // The event full of 5 phrases I thought of
-phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
+const phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
@@ -52,13 +50,13 @@ function addPhraseToDisplay(phraseArray) {
 // Spodnji if statement pogleda textovno vsebino li variable in če ta ni presledek ji dodeli class letter.
         if (li.textContent != " ") {
             li.className = "letter";
-        };
+        }
         
         ul.appendChild(li);
-    };
-};
+    }
+}
 // Spodnja vrstica sproži funkcijo.
-addPhraseToDisplay(phraseArray)
+addPhraseToDisplay(phraseArray);
 
 
 
@@ -82,8 +80,8 @@ onScreenKeyboar.addEventListener("click", (event) => {
         // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
         // Displays the correct number of harts
-        scoreboard(missed)
-        checkWin()
+        scoreboard(missed);
+        checkWin();
     } else {
         return null;
     }
@@ -110,10 +108,10 @@ function checkLetter(buttonCliked) {
               break;
             case false:
             //  Counts the number of times the switch statement was false
-              wrongMatch += 1
+              wrongMatch += 1;
               break;
-        };
-    };
+        }
+    }
     console.log(wrongMatch);
     console.log(lettersWithClass.length);
     if (wrongMatch === lettersWithClass.length) {
@@ -125,8 +123,8 @@ function checkLetter(buttonCliked) {
         wrongMatch = 0;
     } else {
         wrongMatch = 0;  
-    };
-};
+    }
+}
 
 
 
@@ -160,8 +158,8 @@ function scoreboard (missed) {
         case 5:
             lifeHart[4].style.display = "none";
         break;
-    };
-};
+    }
+}
 
 /*
 CHECKWIN
@@ -172,7 +170,7 @@ CHECKWIN
 function checkWin () {
     let correctlyGuessedLetterLenght = document.querySelectorAll(".show").length;
     let lettersWithClassLenght = document.querySelectorAll(".letter").length;
-    console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetterLenght} in število vseh črk v besedi je ${lettersWithClassLenght}.`)
+    console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetterLenght} in število vseh črk v besedi je ${lettersWithClassLenght}.`);
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
         overlay.style.backgroundColor = "#98dec5";
@@ -183,5 +181,5 @@ function checkWin () {
         overlay.style.backgroundColor = "#ff8a8a";
         startButton.style.display = "none";
         overlayHeading.textContent = "better luck next time";
-    };
-};
+    }
+}
