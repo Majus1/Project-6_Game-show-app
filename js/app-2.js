@@ -16,7 +16,7 @@ const phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
-    resetAndTryAgain()
+    resetAndTryAgain();
     // Spodnja vrstica shrani retur funkcije getRandomPhraseAsArray() v spodnjo variablo.
     let phraseArray = getRandomPhraseAsArray(phrase);
     console.log(phraseArray);
@@ -205,11 +205,11 @@ function resetAndTryAgain () {
         alredyChosenLetters[n].className = "";
         alredyChosenLetters[n].removeAttribute("disabled");
 
-    };
+    }
 
     let greenLetters = document.querySelectorAll(".letter");
     for (let x = 0; x < greenLetters.length; x++) {
         // Select every correctly guessed letter and removes it from DOM
         greenLetters[x].remove();
-    };
-};
+    }
+}
