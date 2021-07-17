@@ -3,6 +3,7 @@ const onScreenKeyboar = document.getElementById("qwerty");
 let overlay =document.getElementById("overlay");
 const startButton = document.getElementsByClassName("btn__reset")[0];
 const overlayHeading =document.querySelector(".title");
+let lifeHart = document.querySelectorAll(".tries");
 // Keeps track of not matching variables in the switch statement
 let wrongMatch = 0;
 // Keeps track how many times a wrong letter was picked
@@ -15,7 +16,7 @@ const phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 
 // The event listiner
 startButton.addEventListener("click", ()=> {
-    overlay.style.display = "none";
+    resetAndTryAgain()
 });
 
 
@@ -136,7 +137,6 @@ SCORE BOARD
 */
 
 function scoreboard (missed) {
-    let lifeHart = document.querySelectorAll(".tries");
 
     switch (missed) {
         case 0:
@@ -174,7 +174,7 @@ function checkWin () {
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
         overlay.style.backgroundColor = "#98dec5";
-        startButton.style.display = "none";
+        startButton.textContent = "Reset";
         overlayHeading.textContent = "Good job you won";
     } else if (missed === 5) {
         overlay.style.display = "flex";
@@ -183,3 +183,21 @@ function checkWin () {
         overlayHeading.textContent = "better luck next time";
     }
 }
+
+function resetAndTryAgain () {
+    overlay.style.display = "none";
+    console.log("This will also reset");
+    // initialized variable back to 0
+    missed = 0;
+    // Displays all the lost harts
+    lifeHart[0].style.display = "inline-block";
+    lifeHart[1].style.display = "inline-block";
+    lifeHart[2].style.display = "inline-block";
+    lifeHart[3].style.display = "inline-block";
+    lifeHart[4].style.display = "inline-block";
+    // Sets all of the clickable alredy chose letters back to their original state
+    let alredyChosenLetters = document.querySelectorAll(".chosen");
+    for (let n = 0; n < alredyChosenLetters.length; n++) {
+        alredyChosenLetters[n].className = "";
+    };
+};
