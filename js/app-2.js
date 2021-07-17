@@ -175,7 +175,7 @@ function checkWin () {
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
         overlay.style.backgroundColor = "#98dec5";
-        startButton.style.display = "none";
+        startButton.textContent = "Reset";
         overlayHeading.textContent = "Good job you won";
     } else if (missed === 5) {
         overlay.style.display = "flex";
