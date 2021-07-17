@@ -20,7 +20,7 @@ startButton.addEventListener("click", ()=> {
     // Spodnja vrstica shrani retur funkcije getRandomPhraseAsArray() v spodnjo variablo.
     let phraseArray = getRandomPhraseAsArray(phrase);
     console.log(phraseArray);
-    // Spodnja vrstica sproži funkcijo.
+    // Spodnja vrstica sproži funkcijo. And adds the randomly generated phrase to the DOM
     addPhraseToDisplay(phraseArray);
 });
 
@@ -175,12 +175,12 @@ function checkWin () {
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
         overlay.style.backgroundColor = "#98dec5";
-        startButton.textContent = "Reset";
+        startButton.style.display = "none";
         overlayHeading.textContent = "Good job you won";
     } else if (missed === 5) {
         overlay.style.display = "flex";
         overlay.style.backgroundColor = "#ff8a8a";
-        startButton.style.display = "none";
+        startButton.textContent = "Reset";
         overlayHeading.textContent = "better luck next time";
     }
 }
@@ -207,9 +207,9 @@ function resetAndTryAgain () {
 
     };
 
-    let greenLetters = document.querySelectorAll(".show");
+    let greenLetters = document.querySelectorAll(".letter");
     for (let x = 0; x < greenLetters.length; x++) {
-        // Select every correctly guessed letter and resets it class
+        // Select every correctly guessed letter and removes it from DOM
         greenLetters[x].remove();
     };
 };
