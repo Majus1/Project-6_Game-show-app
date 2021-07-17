@@ -175,6 +175,11 @@ function checkWin () {
     console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetterLenght} in število vseh črk v besedi je ${lettersWithClassLenght}.`)
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
+        overlay.style.backgroundColor = "#98dec5";
+        startButton.style.display = "none";
+        overlayHeading.textContent = "Good job you won";
+    } else if (missed === 5) {
+        overlay.style.display = "flex";
         overlay.style.backgroundColor = "#ff8a8a";
         startButton.style.display = "none";
         overlayHeading.textContent = "better luck next time";
