@@ -3,12 +3,14 @@ const qwertySection = document.getElementById("qwerty");
 const ourPhrase = document.getElementById("phrase");
 const onScreenKeyboar = document.getElementById("qwerty");
 let overlay =document.getElementById("overlay");
+const startButton = document.getElementsByClassName("btn__reset")[0];
+const overlayHeading =document.querySelector(".title");
 // Keeps track of not matching variables in the switch statement
 let wrongMatch = 0;
 // Keeps track how many times a wrong letter was picked
 let missed = 0;
 
-const startButton = document.getElementsByClassName("btn__reset")[0];
+
 
 // The event full of 5 phrases I thought of
 phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
@@ -173,5 +175,8 @@ function checkWin () {
     console.log(`Število prav ugotovljenih črk v besedi je ${correctlyGuessedLetterLenght} in število vseh črk v besedi je ${lettersWithClassLenght}.`)
     if (correctlyGuessedLetterLenght === lettersWithClassLenght) {
         overlay.style.display = "flex";
+        overlay.style.backgroundColor = "#ff8a8a";
+        startButton.style.display = "none";
+        overlayHeading.textContent = "better luck next time";
     };
 };
