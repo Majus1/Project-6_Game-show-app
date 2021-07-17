@@ -17,20 +17,20 @@ const phrase = ["lump", "bucket hat", "sup", "tattoo", "polaroid"];
 // The event listiner
 startButton.addEventListener("click", ()=> {
     resetAndTryAgain();
-    // Spodnja vrstica shrani retur funkcije getRandomPhraseAsArray() v spodnjo variablo.
+    // Bottom line of codes returns a random phrase from the "phrase" array
     let phraseArray = getRandomPhraseAsArray(phrase);
     console.log(phraseArray);
-    // Spodnja vrstica sproži funkcijo. And adds the randomly generated phrase to the DOM
+    // Executes and ads a random phrase to the DOM. 
     addPhraseToDisplay(phraseArray);
 });
 
 
 function getRandomPhraseAsArray(phrase) {
     /*
-    • Slednja funkcija najde random število med o in dolžino našega arraya.
-    • Poišče element znotraj arraya kateri je bil označen z randomNumber indexom.
-    • Slednji element razbije na posamične in jih shrani v novi array.
-    • Returna nam naš novi array polen črk izbrane besede.
+    • The function finds a random number index from 0 to the length of our phrase array.
+    • It takes the selected index and returns the phrase associated with the index.
+    • The gathered phrase is then split into individual letters witch are saved in a new array.
+    • The function then returns the new array full of wonderful letters.
     */
     let randomNumber = Math.floor(Math.random() * phrase.length);
     let randomPhraseSelected = phrase[randomNumber];
