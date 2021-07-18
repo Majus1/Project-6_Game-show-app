@@ -42,17 +42,17 @@ function getRandomPhraseAsArray(phrase) {
 
 function addPhraseToDisplay(phraseArray) {
     /*
-    • Slednja funkcija najde z pomočjo for loopa prešiba čez vse elemnte znotraj arraya
-    • Selecta div, ul in li element v našemu DOM.
-    • Našemu selectanemu li spremeni text bolj natančno ga nadomesti z elementom iz našega arrya
-    • Vsre li elemente appenda našemu <ul> tagu in BOOM pojavijo se na našim DOM
+    • The function goes throw the phrase array.
+    • It then selects the div ul and li elements.
+    • It then changes the text content of every li to the corresponding content from the phrase array.
+    • It then appends the selected li to the ul.
     */
     for (let i = 0; i < phraseArray.length; i++) {
         const div = document.querySelector("#phrase");
         const ul = div.firstElementChild;
         const li = document.createElement("li");
         li.textContent = phraseArray[i];
-// Spodnji if statement pogleda textovno vsebino li variable in če ta ni presledek ji dodeli class letter.
+// The if statement checks the text content of the li variable. If the variables text content is not space it gives it the class "letter".
         if (li.textContent != " ") {
             li.className = "letter";
         }
@@ -65,20 +65,18 @@ function addPhraseToDisplay(phraseArray) {
 
 onScreenKeyboar.addEventListener("click", (event) => {
     /*
-    • Z pomočjo event listerja identificeramo klike na elemente znoraj <div id="#qwerty">
-    • Z pomočjo uporabe event delegation lahko identificeramo kateri elment je bil kliknjen (Katera črka je bila kliknjena).
-    • Če je bil kliknjen gumb z neko specifično črko lahko njega naprej manipuliramo.
-    • Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
-    • Event listiner vsebuje tudi funkcijo (buttonCliked) katera sprejme gumb na katerega smo kliknili in se izvrši.
-    • V primeru da nismo kliknili na črko se zgodi nič. Beacuse of return null;
+    With the event listener we listen for clicks on elments inside "<div id="#qwerty">".
+    With the help of event delegation, we can identify which element was clicked (what letter was clicked).
+    Any clicked button will be disabled not to be clicked again.
+    The function "checkLetter(buttonCliked)" marks the correctly guessed letters.
+    In the case, no letter was clicked nothing happens.
     */
     let buttonCliked = event.target;
     console.log(buttonCliked);
     if (buttonCliked.tagName === "BUTTON") {
         buttonCliked.className = "chosen";
         checkLetter(buttonCliked);
-        // numberFailedTries(buttonCliked);
-        // Kateri koli gumb kliknjen bo bil disablan v izogib večkratnega pritiska nanj.
+        // Any clicked button will be disabled not to be clicked again.
         // THIS HELPED: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-disabled
         buttonCliked.setAttribute("disabled", "buttonCliked");
         // Displays the correct number of harts
@@ -92,8 +90,8 @@ onScreenKeyboar.addEventListener("click", (event) => {
 
 function checkLetter(buttonCliked) {
      /*
-    • Funkcija ustvari array vseh črk znotraj naše phrase.
-    • Z pomčjo for loopa in Switch Statementa evalueramo ali se kateri izmed indexov znotraj ustvarjenega arraya ujema kliknjeno črko na tipkovnici 
+    The function creates an array  containing the letters in the phrase
+    With the help of the for loop and switch statement, it checks if any index inside the array matches with the chosen letter.
     */
     let lettersWithClass = document.querySelectorAll(".letter");
     
@@ -102,7 +100,7 @@ function checkLetter(buttonCliked) {
         let letterInQuestion = lettersWithClass[i];
         console.log(`comparing the button clicked _${buttonCliked.textContent}_ in gumb v naši frazi _${letterInQuestion.textContent}_`);
 
-        // Switch statement nam omogoča testiran ujemanja varabel.
+        // Switch statement helps us check for matches.
         // THIS HELPED: https://www.w3schools.com/js/js_switch.asp
         switch (buttonCliked.textContent === letterInQuestion.textContent) {
             case true:
@@ -129,16 +127,13 @@ function checkLetter(buttonCliked) {
 }
 
 
-
-/*
-SCORE BOARD
-
-• Lower switch statement monitors the number how many harts are displayed.
-• Every time the missed variable rises ne hart disaperas
-*/
-
 function scoreboard (missed) {
+    /*
+    SCORE BOARD
 
+    • Lower switch statement monitors the number how many harts are displayed.
+    • Every time the missed variable rises ne hart disaperas
+    */
     switch (missed) {
         case 0:
         // Code
@@ -165,8 +160,9 @@ function scoreboard (missed) {
 /*
 CHECKWIN
 
-• The function comares the number of letters with the class ".show" and the lenght of the phrase
-• If the lenghts are the same then ...
+• The function compares the number of letters with the class ".show" and the lenght of the phrase
+• If the lenghts are the same then it displays the winner screen and the reset button.
+• If the value of the missed variable reaches 5 then the losser screen is displayed as well as the reset button.
 */
 function checkWin () {
     let correctlyGuessedLetterLenght = document.querySelectorAll(".show").length;
@@ -186,6 +182,7 @@ function checkWin () {
 }
 
 function resetAndTryAgain () {
+    // THe function resets the game so anyone can play it again.
     overlay.style.display = "none";
     console.log("This will also reset");
 
