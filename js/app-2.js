@@ -55,6 +55,8 @@ function addPhraseToDisplay(phraseArray) {
 // The if statement checks the text content of the li variable. If the variables text content is not space it gives it the class "letter".
         if (li.textContent != " ") {
             li.className = "letter";
+        } else {
+            li.className = "space";
         }
         
         ul.appendChild(li);
